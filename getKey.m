@@ -5,7 +5,6 @@ function key = getKey(A)
 
 A = A(:)'; % make a row vector
 A(isnan(A)) = 0;
-nz = find(A);
-A = A(nz(1):nz(end)); % remove leading and trailing zeros
 t = cumsum(A);
-key = diff([0, t(A==0), t(end)]);
+key = diff([0, (t(A==0)), t(end)]);
+key = key(key~=0); % remove zeros from the key
