@@ -1,8 +1,8 @@
-function ng = solveNonogram(ngSize,keyRows,keyCols,method)
+function ng = solveNonogram(ngSize,rowKeys,colKeys,method)
 
 switch method
     case 'brute'
-        ng = nonogramBruteForce(ngSize,keyRows,keyCols);
-    else
+        ng = nonogramBruteForce(ngSize,rowKeys,colKeys);
+    otherwise
         error('methods not implemented yet.')
 end

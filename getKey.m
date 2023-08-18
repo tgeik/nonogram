@@ -8,3 +8,6 @@ A(isnan(A)) = 0;
 t = cumsum(A);
 key = diff([0, (t(A==0)), t(end)]);
 key = key(key~=0); % remove zeros from the key
+if isempty(key)
+    key = [];
+end
