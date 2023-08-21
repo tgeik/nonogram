@@ -14,3 +14,18 @@ for iRow = 1:nRows
     candidates{iRow} = find(index);
 end
 solutions = combvec(candidates{:})';
+
+for iSol = 1:size(solutions,1)
+    sol = solutions(iSol,:);
+    ng = nan(ngSize);
+    for iRow = 1:nRows
+        ng(iRow,:) = rowCombs(sol(iRow),:);
+    end
+    for iCol = 1:nCols
+        cols{iCol} = getKey(ng(:,iCol));
+    end
+    if isequal(cols,colKeys)
+        return
+    end
+%     disp(ng)
+end
