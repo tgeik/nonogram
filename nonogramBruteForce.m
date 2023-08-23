@@ -13,10 +13,10 @@ for iRow = 1:nRows
     index = cellfun(@(x) isequal(x,key), combKeys, 'UniformOutput', true);
     candidates{iRow} = find(index);
 end
-solutions = combvec(candidates{:})';
 
-for iSol = 1:size(solutions,1)
-    sol = solutions(iSol,:);
+nCandidates = prod(cellfun(@(x)numel(x),candidates));
+for iSol = 1:nCandidates
+    sol = nthcomb(candidates,iSol);
     ng = nan(ngSize);
     for iRow = 1:nRows
         ng(iRow,:) = rowCombs(sol(iRow),:);
